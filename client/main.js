@@ -1,5 +1,1 @@
-console.log(ProcessingInstruction.env.LANG);
-
-const a = 10;
-
-console.log();
+console.log(window);
