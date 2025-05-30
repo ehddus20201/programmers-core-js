@@ -3,5 +3,11 @@
     "editor.tokenColorCustomizations": {
         "comments": "",
         "textMateRules": []
-    }
+        
+    },
+    
+    "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+},
+"editor.snippetSuggestions": "top"
 }

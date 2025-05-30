@@ -31,6 +31,6 @@ function sum() {
   var outside = 'outer';
 }
 
-console.log(outside);
+// console.log(outside);
 sum();
 //
