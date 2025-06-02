@@ -3,7 +3,6 @@
     "editor.tokenColorCustomizations": {
         "comments": "",
         "textMateRules": []
-        
     },
     
     "emmet.includeLanguages": {
