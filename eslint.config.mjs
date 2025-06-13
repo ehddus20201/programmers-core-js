@@ -6,6 +6,15 @@ const types = {
   isObject:true,
   isArray:true,
   isNull:true,
+  isString:true,
+  isUndefined:true,
+}
+
+const lib = {
+  getNode:true,
+  insertLast:true,
+  css:true,
+  attr:true,
 }
 export default defineConfig([
   { 
@@ -20,6 +29,7 @@ export default defineConfig([
         ...globals.browser, 
         ...globals.node,
         ...types,
+        ...lib,
         },
       },
       rules:{
