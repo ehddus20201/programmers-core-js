@@ -1,104 +1,78 @@
-import {
-  copy,
-  shake,
-  addClass,
-  getRandom,
-  showAlert,
-  insertLast,
-  removeClass,
-  getNode as $,
-  clearContents,
-  isNumericString,
-} from './lib/index.js';
+import { diceAnimation, getNode, attr, insertLast } from './lib/index.js';
 
-import data from './data/data.js';
+const [rollingButton, recordButton, resetButton] = document.querySelectorAll('.buttonGroup button');
 
-/* 
-
-[phase-1]
-
-1. 주접 떨기 버튼을 클릭하는 함수
-    - 주접 떨기 버튼 가져오기
-    - 이벤트 연결 'click'
-
-2. input 값 가져오기 
-    - input.value
-
-3. data 함수에서 주접 이름 넣고 꺼내기 => [] 리턴값 확인
-    - n번째 주접 랜덤 pick 하기 
-
-4. result에 렌더링 하기
-    - insertLast 
-
-[phase-2]
-5. 예외 처리
-    - 이름이 없을 경우 에러
-    - 숫자만 들어오면 에러
-
-*/
-
-const submit = $('#submit');
-const nameField = $('#nameField');
-const result = $('.result');
+const recordListWrapper = getNode('.recordListWrapper')
 
 
-function handleSubmit(e) {
-  e.preventDefault();
-
-  const name = nameField.value;
-  const list = data(name);
-  const pick = list[getRandom(list.length)];
+let count = 0;
+let total = 0;
 
 
-  if(!name || name.replaceAll(' ','') === ''){
-
-    showAlert({
-      target:'.alert-error',
-      message:'공백은 허용되지 않습니다.',
-      timeout:2000,
-      className:'is-active'
-    })
-
-    shake(nameField)
-    return;
-  }
-
-  if(!isNumericString(name)){
-    showAlert({
-      target:'.alert-error',
-      message:'정확한 이름을 입력해 주세요.',
-      timeout:2000,
-      className:'is-active'
-    })
-
-    shake(nameField)
-    return;
-  }
-
-  clearContents(result);
-  insertLast(result, pick);
+function createItem(value){
+  return `
+    tr>
+      <td>${++count}</td>
+      <td>${value}</td>
+      <td>${total += value}</td>
+    </tr>
+    `
+    
 }
 
-function handleCopyClipboard(){
+function renderRecordItem(){
+  const dicenumber = +attr('#cube','dice');
+  console.log(dicenumber);
   
-  const text = this.textContent;
-  
-  
-  copy(text)
-  .then(()=>{
-      showAlert({
-        target:'.alert-success',
-        className:'is-active',
-        message:'클립보드 복사 완료!!',
-        timeout:2000,
-      })
-  })
   
 
 
+
+    insertLast('tbody',createItem(dicenumber));
+    recordListWrapper.scrollTop = recordListWrapper.scrollHeight;
+}
+
+
+const handleRollingDice = (()=>{
+
+  let isClicked = false;
+  let id;
+
+  return ()=>{
+  if(!isClicked){
+    id= setInterval( diceAnimation, 100);
+    recordButton.disabled = true;
+    resetButton.disabled = true;
+    
+  
+  }else{
+    clearInterval(id);
+    recordButton.disabled = false;
+    resetButton.disabled = false;
+
+    
+  }
+  isClicked = !isClicked;
+  };
+})()
+
+function handleRecord(){
+  recordListWrapper.hidden = false;
+  renderRecordItem();
+}
+
+function handlereset() {
+  recordListWrapper.hidden = true;
   
 }
 
-submit.addEventListener('click', handleSubmit);
 
-result.addEventListener('click',handleCopyClipboard)
+
+rollingButton.addEventListener('click',handleRollingDice);
+//1 주사위 ㅋ굴리기 버튼
+// 2 클릭 이벤트 바인딩
+// 셋 인터벌 함수로 diceAnimation 이 굴러가도록
+
+recordButton.addEventListener('click',handleRecord);
+resetButton.addEventListener('click',handlereset);
+
