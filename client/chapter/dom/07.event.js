@@ -16,6 +16,7 @@ first.onclick= () => {
   
 }
 
+
 function handler(e){
   console.log(e.offsetX, e.offsetY);
   
