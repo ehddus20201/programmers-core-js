@@ -2,20 +2,7 @@ import js from "@eslint/js";
 import globals from "globals";
 import { defineConfig } from "eslint/config";
 
-const types = {
-  isObject:true,
-  isArray:true,
-  isNull:true,
-  isString:true,
-  isUndefined:true,
-}
 
-const lib = {
-  getNode:true,
-  insertLast:true,
-  css:true,
-  attr:true,
-}
 export default defineConfig([
   { 
     files: ["**/*.{js,mjs,cjs}"],
@@ -28,8 +15,6 @@ export default defineConfig([
       globals: {
         ...globals.browser, 
         ...globals.node,
-        ...types,
-        ...lib,
         gsap:true,
         },
       },

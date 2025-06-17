@@ -1,3 +1,7 @@
+import { getNode } from './getNode.js'
+import { isString, isObject,isArray } from '../utils/type.js'
+
+
 //JSDoc
 
 /**
@@ -8,7 +12,7 @@
  * @return {void}
  */
 
-function addClass(node,className){
+export function addClass(node,className){
 
   if(isString(node)) node = getNode(node);
 
@@ -41,7 +45,7 @@ function addClass(node,className){
  * @returns {void}
  */
 
-function removeClass(node,className){
+export function removeClass(node,className){
   if(isString(node)) node = getNode(node); // 이줄 왜 하는건지 알아보기
   if(!className){
     node.className = '';
@@ -61,7 +65,7 @@ function removeClass(node,className){
 
 
 
-function toggleClass(node,className){
+export function toggleClass(node,className){
   if(isString(node)) node = getNode(node);
   return node.classList.toggle(className);
 }
