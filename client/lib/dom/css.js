@@ -1,41 +1,37 @@
 import { getNode } from './getNode.js'
-import { isString, isObject,isArray } from '../utils/type.js'
-
-
-//JSDoc
+import { isString, isObject } from '../utils/type.js'
 
 /**
+
  * @function DOM Element에 클래스를 추가하는 함수
- * @author 나야
- * @param {HTMLElement | string} node
- * @param {string| string[]| object} className
+ * @author 범쌤
+ * @param {HTMLElement | string} node 
+ * @param {string | string[] | object} className 
  * @return {void}
  */
 
 export function addClass(node,className){
-
+  
   if(isString(node)) node = getNode(node);
 
+
   if(className.includes(',')){
-    className = className.replace(/\s*/ ,'').split(',');
-  }
-
-  if(isObject(className)){
-    className = Object.values(className);
-    
-  }
-
-  if(isArray(className)) {
-    className.forEach(i => {
-      node.classList.add(i)
-    });
-    return;
+    className = className.replace(/\s*/g,'').split(',');
   }
   
-  node.classList.add(className);
+  if(isObject(className)){
+    className = Object.values(className)
+  }
+  
+  if(Array.isArray(className)){
+
+    className.forEach((c)=> node.classList.add(c))
+  }
+  else{
+    node.classList.add(className);
+  }
+  
 }
-
-
 
 
 /**
@@ -46,26 +42,23 @@ export function addClass(node,className){
  */
 
 export function removeClass(node,className){
-  if(isString(node)) node = getNode(node); // 이줄 왜 하는건지 알아보기
+  if(isString(node)) node = getNode(node);
+  
   if(!className){
     node.className = '';
   }
+
   node.classList.remove(className);
 }
-
-
-
 
 /**
  * 
  * @param {HTMLElement | string} node 
  * @param {string} className 
- * @returns {boolean} - 추가 true , 제거 false
+ * @returns {boolean} - 추가 true, 제거 false
  */
 
-
-
 export function toggleClass(node,className){
-  if(isString(node)) node = getNode(node);
+ if(isString(node)) node = getNode(node);
   return node.classList.toggle(className);
 }
