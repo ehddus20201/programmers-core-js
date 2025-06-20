@@ -70,7 +70,7 @@ function handleMove(e){
 ground.addEventListener('mousemove',handleMove);
 
 
-function debounce(f,limit = 1000){
+export function debounce(f,limit = 1000){
  // 1초가 지나기 전에 실행시 타이머가 초기화됨 그래서 호출이 안됨 콘솔로그가 ㅇㅇ
   let timeout;
   return function(e){
