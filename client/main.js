@@ -37,7 +37,7 @@ async function renderUserList() {
       onComplete() {
         this._targets[0].remove();
         data.forEach((user) => renderUserCard(userCardInner, user));
-        changeColor('.user-card');
+        // changeColor('.user-card');
 
         gsap.from('.user-card', {
           opacity: 0,

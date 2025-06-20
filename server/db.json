@@ -1,5 +1,11 @@
 {
-  "users":[],
+  "users": [
+    {
+      "email": "tiger@gmail.com",
+      "password": "$2a$10$W/Wjcyw1LSVA5NzVOuvnqu84Bxk8PfqNAVqTQTrGkQ5v4eZzVDrd2",
+      "id": 1
+    }
+  ],
   "posts": [
     {
       "id": "1",

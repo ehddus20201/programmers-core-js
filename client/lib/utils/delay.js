@@ -141,7 +141,7 @@ async function f() {
 
 
 
-const a = await f(); // 만약 f 함수가 5초가 걸리면 5초를 기다려준다 그동안 밑에꺼는 실행 안되고 기다린다
+// const a = await f(); // 만약 f 함수가 5초가 걸리면 5초를 기다려준다 그동안 밑에꺼는 실행 안되고 기다린다
 
 
 // a.then(console.log)
@@ -201,4 +201,4 @@ async function getData(){
 }
 
 
-getData();
+// getData();
