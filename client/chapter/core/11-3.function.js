@@ -88,8 +88,8 @@ const b = () => {
 function createUser(name,age){
 
   return {
-    name:name,
-    age:age
+    name,
+    age,
   }
 }
 
@@ -129,7 +129,7 @@ console.log(_btn);
 
 
 
-console.clear();
+// console.clear();
 
 // this 찾기 
 
@@ -160,16 +160,16 @@ const user = {
   grades: [50,70,40],
   totalGrades(){
     
-    // this.grades.forEach( g => this.total += g )
+    this.grades.forEach( g => this.total += g )
 
     // this.grades.forEach(function(g){
     //   this.total += g;
     // },this)
   
-    // console.log(this.total);
+    console.log(this);
 
 
-    this.total = this.grades.reduce((acc,cur) => acc + cur,0)
+    // this.total = this.grades.reduce((acc,cur) => acc + cur,0)
     
     return this.total;
     
@@ -181,13 +181,14 @@ const user = {
       console.log(this);
       
     }
-
-    sayBye()
+sayBye()
+    
 
   }
   
 }
 
+console.log(user.sayHi());
 
 
 

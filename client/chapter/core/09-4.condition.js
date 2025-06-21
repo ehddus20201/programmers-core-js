@@ -27,14 +27,14 @@ receivedEmailAddress = emailAddress || 'user@company.io';
 const WIDTH = '100px';
 const isActive = false;
 
-console.log( 0 || WIDTH );
-console.log( 0 ?? WIDTH );
+// console.log( 0 || WIDTH );
+// console.log( 0 ?? WIDTH );
 
-console.log( undefined || WIDTH );
-console.log( undefined ?? WIDTH );
+// console.log( undefined || WIDTH );
+// console.log( undefined ?? WIDTH );
 
-console.log( isActive || WIDTH );
-console.log( isActive ?? WIDTH );
+// console.log( isActive || WIDTH );
+// console.log( isActive ?? WIDTH );
 
 console.log( '' || WIDTH );
 console.log( '' ?? WIDTH );

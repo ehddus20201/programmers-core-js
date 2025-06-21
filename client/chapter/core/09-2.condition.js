@@ -29,12 +29,12 @@ console.log(reverseValue);
 
 // 첫번째 Falsy를 찾는 연산 (&&)
 // let whichFalsy = true && ' ' && [] && { thisIsFalse: false };
-// console.log(whichFalsy);
 
-// // 첫번째 Truthy를 찾는 연산 (||)
+
+// 첫번째 Truthy를 찾는 연산 (||)
 // let whichTruthy = false || '' || [2, 3].length || { thisIsTruthy: true };
-
-console.clear();
+// console.log(whichTruthy);
+// console.clear();
 const str = prompt('누구세용?', '');
 
 if (str?.toLowerCase() === 'admin') {

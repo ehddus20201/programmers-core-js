@@ -12,10 +12,13 @@ const shopOrder = {
   ],
 
   totalPrice(){
-    this.total= this.menu.reduce((acc,cur)=> acc + cur.price * cur.count ,0)// 샵오더에 토탈이 없지만 이렇게 하면 토탈이 생성됨
-    return this.total;
+    this.total = this.menu.reduce((acc,cur)=> acc+ cur.price * cur.count
+  ,0)
+  return this.total;
   }
 };
+console.log(shopOrder.totalPrice());
+
 
 // menu 안에 있는 product price의 총합을 구해주세요
 const sum = shopOrder.menu[0].price * shopOrder.menu[0].count + shopOrder.menu[1].price * shopOrder.menu[1].count

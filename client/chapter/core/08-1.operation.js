@@ -46,7 +46,7 @@ let coercionTypeConversion = '9' * '3';
 // 대부분의 연산자는 기본 값으로만 작동합니다.
 let onlyWorkDefaultValues = [1, 2, 3] + [4, 5, 6];
 
-console.clear();
+
 console.log(onlyWorkDefaultValues);
 
 let first = [1, 2, 3];
@@ -68,3 +68,5 @@ console.log(first.concat(second));
 
 let count = 10;
 let total = (count % 4) * (count /= 2) + count ** 3; // ?
+
+console.log(total);

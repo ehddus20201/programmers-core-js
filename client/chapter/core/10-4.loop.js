@@ -71,4 +71,4 @@ Object.defineProperty(obj, 'age', {
   configurable:false // 제거가 안되게끔 제거할려고하면 false 반환
 })
 
-Object.definePropertys() // 여러가지 키값 다 만들기 가능
+// Object.definePropertys() // 여러가지 키값 다 만들기 가능

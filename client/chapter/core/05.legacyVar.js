@@ -34,3 +34,5 @@ function sum() {
 // console.log(outside);
 sum();
 //
+
+

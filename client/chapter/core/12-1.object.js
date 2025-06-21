@@ -55,6 +55,7 @@ authUser = {
 }
 
 
+
 // 점(.) 표기법
 // authUser 객체의 프로퍼티에 접근해 Console에 출력해봅니다.
 
@@ -189,7 +190,7 @@ function isEmptyObject() {
 /* 배열 구조 분해 할당  destructuring assignments   */
 /* ------------------------------------------- */
 // 유사배열도 구조분해할당 사용가능하다
-console.clear();
+
 // 순서를 바꿀 수 없음. 변수명은 내 마음대로
 const arr = [10,100,1000,10000];
 
@@ -198,7 +199,7 @@ const [a1,,a3, a4] = arr;
 // 5개 넣고 기본값 설정도가능함 ㅇㅇ a5=999
 // const a1 = arr[0];
 
-console.log(a1,a3,a4);
+console.log(document.querySelectorAll("span"));
 
 
 
@@ -220,7 +221,7 @@ const arrow = _ => {}
 /* -------------------------------------------- */
 /* 객체 구조 분해 할당  destructuring assignments    */
 /* --------------------------------------------- */
-console.clear();
+// console.clear();/
 // 순서가 상관없다.
 // 별칭(alias) 설정 가능
 

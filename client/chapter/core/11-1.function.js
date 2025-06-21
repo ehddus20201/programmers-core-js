@@ -12,6 +12,7 @@ function getRandomValue(){
   return Math.random() > 0.5 ? 1 : 0;
 }
 
+
 // 함수 선언
 
 function calcPrice(
