@@ -105,6 +105,7 @@ function sum(a,b){
 // console.log(sum(1,2));
 const _call = sum.call('hello',10,20) // 이러면 30이 나온다
 
+console.log(_call);
 
 
 const _apply = sum.apply({},[10,20]) // 배열로 전달해줘야함

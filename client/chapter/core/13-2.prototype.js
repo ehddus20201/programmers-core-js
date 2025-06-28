@@ -36,7 +36,7 @@ const animal = new Animal('몽실이');
 
 class Tiger extends Animal{
 
-  constructor(){
+  constructor(name){
     super(name);
     this.pattern = '호랑의 무늬';
   }
@@ -54,7 +54,54 @@ class Tiger extends Animal{
 const tiger = new Tiger('호돌이');
 // 스태틱 하면 tiger.bark 를 하면 안되는데 
 // Tiger.bark 하면 접근가능 스태틱 메서드 이기 때문에
-/* 
+
+
+// class Button {
+//     constructor({target, content}){
+//       console.log(this);
+      
+//       this.button = document.querySelector(target);
+//       this.button.textContent = content;
+//       this.attachEvent();
+//     }
+//     createTag(){
+//       return `<div>clicked</div>`
+//     }
+
+//     #render(){
+//       document.body.insertAdjacentHTML('beforeend',this.createTag())
+//     }
+
+//     handleClick(){
+//       this.#render();
+//       // console.log(this);
+      
+      
+//     }
+//     attachEvent(){
+//       this.button.addEventListener('click',()=>this.handleClick());
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 1. 버튼 선택
 2. textContent 수정
 3. 클릭 이벤트 바인딩
@@ -62,31 +109,42 @@ const tiger = new Tiger('호돌이');
 5. 태그 렌더링하기
 */
 
-class Button {
-    constructor({target, content}){
-      
-      this.button = document.querySelector(target);
-      this.button.textContent = content;
-      this.attachEvent();
-    }
-    createTag(){
-      return `<div>clicked</div>`
-    }
 
-    #render(){
-      document.body.insertAdjacentHTML('beforeend',this.createTag())
-    }
+class Button{
 
-    handleClick(){
-      this.#render();
-      // console.log(this);
-      
-      
-    }
-    attachEvent(){
-      this.button.addEventListener('click',()=>this.handleClick);
-    }
+  constructor({target,content}){
+    this.button = document.querySelector(target);
+    this.button.textContent = content;
+    this.attachEvent();
+  }
+
+  createTag(){
+    return `<div>clicked !!!!</div>`;
+  }
+  render(){
+    document.body.insertAdjacentHTML('beforeend',this.createTag())
+  }
+  handleClick(){
+    this.render();
+  }
+
+  attachEvent(){
+    this.button.addEventListener('click',()=> this.handleClick())
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const btn = new Button({
@@ -155,6 +213,7 @@ class Guest extends User{
 }
 
 
+const asdf = new Guest('admin','admin');
 
 
 
