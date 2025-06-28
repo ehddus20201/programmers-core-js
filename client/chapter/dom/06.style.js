@@ -14,7 +14,7 @@ console.log(nav.classList);
 console.log(nav.className);
 
 // nav.classList.add('hello')
-nav.className = 'nav';
+// nav.className = 'nav';
 // nav.classList.remove('nav')
 // nav.classList.toggle('isActive')
 
