@@ -58,6 +58,62 @@ import {
   diceAnimation,
 } from './lib/index.js';
 
+
+
+// const [rollingButton, recordButton, resetButton] = document.querySelectorAll('buttonGroup button');
+
+
+
+// rollingButton.addEventListener()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const [rollingButton, recordButton, resetButton] = document.querySelectorAll(
   '.buttonGroup button'
 );
@@ -77,46 +133,78 @@ function createItem(value) {
   `;
 }
 
+
+
+
+
 function renderRecordItem() {
   const diceNumber = +attr(memo('cube'), 'dice');
 
   insertLast('tbody', createItem(diceNumber));
 }
 
-const handleRollingDice = (() => {
+const handleRollingDice = (()=>{
   let isClicked = false;
   let id;
-
   return () => {
-    if (!isClicked) {
-      id = setInterval(diceAnimation, 100);
-      recordButton.disabled = true;
-      resetButton.disabled = true;
-    } else {
-      clearInterval(id);
-      recordButton.disabled = false;
-      resetButton.disabled = false;
-    }
-
-    isClicked = !isClicked;
-  };
+  if(!isClicked){
+    id = setInterval(diceAnimation, 100);
+    recordButton.disabled = true;
+    resetButton.disabled = true;
+  }else{
+    clearInterval(id);
+    recordButton.disabled = false;
+    resetButton.disabled = false;
+  }
+  isClicked = !isClicked
+}
+  
 })();
 
+function handleRecord(){
 
-function handleRecord() {
-  recordListWrapper.hidden = false;
-  renderRecordItem();
-  endScroll(recordListWrapper);
 }
-
-
-function handleReset() {
-  recordListWrapper.hidden = true;
-  clearContents('tbody');
-  count = 0;
-  total = 0;
-}
-
 rollingButton.addEventListener('click', handleRollingDice);
 recordButton.addEventListener('click', handleRecord);
 resetButton.addEventListener('click', handleReset);
+
+// function renderRecordItem() {
+//   const diceNumber = +attr(memo('cube'), 'dice');
+
+//   insertLast('tbody', createItem(diceNumber));
+// }
+
+// const handleRollingDice = (() => {
+//   let isClicked = false;
+//   let id;
+
+//   return () => {
+//     if (!isClicked) {
+//       id = setInterval(diceAnimation, 100);
+//       recordButton.disabled = true;
+//       resetButton.disabled = true;
+//     } else {
+//       clearInterval(id);
+//       recordButton.disabled = false;
+//       resetButton.disabled = false;
+//     }
+
+//     isClicked = !isClicked;
+//   };
+// })();
+
+
+// function handleRecord() {
+//   recordListWrapper.hidden = false;
+//   renderRecordItem();
+//   endScroll(recordListWrapper);
+// }
+
+
+// function handleReset() {
+//   recordListWrapper.hidden = true;
+//   clearContents('tbody');
+//   count = 0;
+//   total = 0;
+// }
+
