@@ -44,36 +44,128 @@ import {
 
 const first = $('#firstNumber');
 const second = $('#secondNumber');
-const result = $('.result');
 const clear = $('#clear');
+const result = $('.result');
+
+
 
 
 
 function handleInput(){
-  const firstValue = +first.value;
-  const secondValue = Number(second.value);
-  const total = firstValue + secondValue;
+    const firstValue = +first.value;
+    const secondValue = +second.value;
+    const total = firstValue + secondValue;
+    clearContents(result);
+    insertLast(result,total);
+    
+    
 
-
-  // result.textContent = '';
-  clearContents(result)
-
-  insertLast(result,total);
-  
 }
+
 
 function handleClear(e){
-  e.preventDefault();
-
-  // first.value = ''
-  // second.value = ''
-  clearContents(first)
-  clearContents(second)
-
-  result.textContent = '-'
-  first.focus()
+    e.preventDefault();
+    first.value='';
+    second.value='';
+    result.textContent = '-';
+    first.focus();
 }
 
+
 first.addEventListener('input',handleInput);
-second.addEventListener('input',handleInput);
-clear.addEventListener('click',handleClear);
+second.addEventListener('input', handleInput);
+clear.addEventListener('click',handleClear)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const first = $('#firstNumber');
+// const second = $('#secondNumber');
+// const result = $('.result');
+// const clear = $('#clear');
+
+
+
+// function handleInput(){
+//   const firstValue = +first.value;
+//   const secondValue = Number(second.value);
+//   const total = firstValue + secondValue;
+
+
+//   // result.textContent = '';
+//   clearContents(result)
+
+//   insertLast(result,total);
+  
+// }
+
+// function handleClear(e){
+//   e.preventDefault();
+
+//   // first.value = ''
+//   // second.value = ''
+//   clearContents(first)
+//   clearContents(second)
+
+//   result.textContent = '-'
+//   first.focus()
+// }
+
+// first.addEventListener('input',handleInput);
+// second.addEventListener('input',handleInput);
+// clear.addEventListener('click',handleClear);
+
+
+
+
+
+
+
+
+
+
+
