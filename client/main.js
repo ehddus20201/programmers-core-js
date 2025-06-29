@@ -42,63 +42,160 @@ const nameField = $('#nameField');
 const result = $('.result');
 
 
-function handleSubmit(e) {
+
+function handleSubmit(e){
   e.preventDefault();
-
-  const name = nameField.value;
-  const list = data(name);
-  const pick = list[getRandom(list.length)];
-
-
-  if(!name || name.replaceAll(' ','') === ''){
-
+  result.textContent = '';
+  const nickName = nameField.value
+  const list = data(nickName)[getRandom(9)];
+  if(!nickName || nickName.replaceAll(' ','')===''){
     showAlert({
-      target:'.alert-error',
-      message:'공백은 허용되지 않습니다.',
-      timeout:2000,
-      className:'is-active'
+      target: '.alert-error',
+      message : '공백은 허용되지 않습니다!!',
+      timeout : 1000,
+      className : 'is-active',
     })
-
-    shake(nameField)
+    shake('nameField');
     return;
   }
+  
+  insertLast(result,list);
+  
+  
 
-  if(!isNumericString(name)){
-    showAlert({
-      target:'.alert-error',
-      message:'정확한 이름을 입력해 주세요.',
-      timeout:2000,
-      className:'is-active'
-    })
-
-    shake(nameField)
-    return;
-  }
-
-  clearContents(result);
-  insertLast(result, pick);
 }
 
-function handleCopyClipboard(){
-  
-  const text = this.textContent;
-  
-  
-  copy(text)
-  .then(()=>{
-      showAlert({
-        target:'.alert-success',
-        className:'is-active',
-        message:'클립보드 복사 완료!!',
-        timeout:2000,
-      })
-  })
-  
 
 
-  
+
+function handleClipboard(){
+
 }
 
-submit.addEventListener('click', handleSubmit);
 
-result.addEventListener('click',handleCopyClipboard)
+
+submit.addEventListener('click', handleSubmit )
+result.addEventListener('click', handleClipboard )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const submit = $('#submit');
+// const nameField = $('#nameField');
+// const result = $('.result');
+
+
+// function handleSubmit(e) {
+//   e.preventDefault();
+
+//   const name = nameField.value;
+//   const list = data(name);
+//   const pick = list[getRandom(list.length)];
+
+
+//   if(!name || name.replaceAll(' ','') === ''){
+
+//     showAlert({
+//       target:'.alert-error',
+//       message:'공백은 허용되지 않습니다.',
+//       timeout:2000,
+//       className:'is-active'
+//     })
+
+//     shake(nameField)
+//     return;
+//   }
+
+//   if(!isNumericString(name)){
+//     showAlert({
+//       target:'.alert-error',
+//       message:'정확한 이름을 입력해 주세요.',
+//       timeout:2000,
+//       className:'is-active'
+//     })
+
+//     shake(nameField)
+//     return;
+//   }
+
+//   clearContents(result);
+//   insertLast(result, pick);
+// }
+
+// function handleCopyClipboard(){
+  
+//   const text = this.textContent;
+  
+  
+//   copy(text)
+//   .then(()=>{
+//       showAlert({
+//         target:'.alert-success',
+//         className:'is-active',
+//         message:'클립보드 복사 완료!!',
+//         timeout:2000,
+//       })
+//   })
+  
+
+
+  
+// }
+
+// submit.addEventListener('click', handleSubmit);
+
+// result.addEventListener('click',handleCopyClipboard)
